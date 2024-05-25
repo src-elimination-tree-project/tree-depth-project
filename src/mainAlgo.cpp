@@ -129,6 +129,8 @@ void MainAlgo::run(int strength) {
               return;
 
     for (int rep = 0; rep <= strength - 5; ++rep) {
+        if (main && stop && environment.found_cut && doneStrength >= 50) 
+            return;
         std::uniform_real_distribution<> balanceDistribution(0.3, 0.54);
         std::uniform_int_distribution<> pushDistribution(0, 1);
         balance = balanceDistribution(environment.randGen);
